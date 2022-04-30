@@ -1,16 +1,21 @@
 import React, {useEffect, useState} from 'react';
 import { triggerOnTransitionEnd } from '../../../utils/utils';
 import './../styles/Node.css';
+import { v4 as uuid } from 'uuid';
 
-export default function Node() {
+const Node = ({ setIds }) => { 
   const [lineHeightClass, setLineHeightClass] = useState('line--closed');
   const [dotVisibileClass, setDotVisibleClass] = useState('dot--hide');
   const [infoBoxVisibleClass, setInfoBoxVisibleClass] = useState('infoBox--hide');
-  const lineId = 'line-x';
-  const dotId = 'dot-x';
-  const infoBoxId = 'infoBox-x';
+
+  const idNum = uuid();
+  const lineId = `line-${idNum}`;
+  const dotId = `dot-${idNum}`;
+  const infoBoxId = `infoBox-${idNum}`;
 
   const onRender = () => { 
+    setIds(ids => [...ids, idNum])
+
     openLine().then(() => {
       showDot()
       showInfoBox()
@@ -62,3 +67,5 @@ export default function Node() {
    </div>
   )
 }
+
+export default Node;
