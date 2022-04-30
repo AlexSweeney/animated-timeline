@@ -1,4 +1,29 @@
 .node {
+  display: flex;
+  width: 500px;
+  background-color: pink;
+  justify-content: center;
+  position: relative;
+}
+
+.infoBox {
+  border: 2px solid red;
+  position: absolute;
+  left: 0;
+  transition-delay: 1s;
+  transition-property: opacity;
+  transition-duration: 2s; 
+}
+
+.infoBox--hide {
+  opacity: 0;
+}
+
+.infoBox--show {
+  opacity: 1;
+}
+
+.timeline {
   display: inline-flex; 
   flex-direction: column;
   border: 2px solid green;

@@ -5,19 +5,21 @@ import './../styles/Node.css';
 export default function Node() {
   const [lineHeightClass, setLineHeightClass] = useState('line--closed');
   const [dotVisibileClass, setDotVisibleClass] = useState('dot--hide');
+  const [infoBoxVisibleClass, setInfoBoxVisibleClass] = useState('infoBox--hide');
   const lineId = 'line-x';
   const dotId = 'dot-x';
+  const infoBoxId = 'infoBox-x';
 
-  const onRender = () => {
-    console.log('render -----')
+  const onRender = () => { 
     openLine().then(() => {
       showDot()
+      showInfoBox()
     })
   };
 
   const openLine = () => {
     return new Promise(resolve => {
-      triggerOnTransitionEnd(lineId, 'height', () => {
+      triggerOnTransitionEnd(lineId, 'height', () => { 
         resolve(null)
       }) 
       setLineHeightClass('line--open')
@@ -26,10 +28,20 @@ export default function Node() {
 
   const showDot = () => { 
     return new Promise(resolve => {
+      console.log('show dot')
       triggerOnTransitionEnd(dotId, 'height', () => {
         resolve(null)
       })  
       setDotVisibleClass('dot--show')
+    }) 
+  }
+
+  const showInfoBox = () => {
+    return new Promise(resolve => {
+      triggerOnTransitionEnd(infoBoxId, 'opacity', () => {
+        resolve(null)
+      })  
+      setInfoBoxVisibleClass('infoBox--show')
     }) 
   }
 
@@ -38,10 +50,15 @@ export default function Node() {
   }, [])
 
   return (
-    <div className='node'>
-      <div id={lineId} className={`line ${lineHeightClass}`}/>
-      <div id={dotId} className={`dot ${dotVisibileClass}`}/>
-      <div className={'info-box'}/>
-    </div>
+    <div className='node'> 
+      <div className='timeline'>
+        <div id={lineId} className={`line ${lineHeightClass}`}/>
+        <div id={dotId} className={`dot ${dotVisibileClass}`}/>   
+      </div>
+      <div id={infoBoxId} className={`infoBox ${infoBoxVisibleClass}`}>
+        <h3>Year 2020</h3>
+        <p>Hello world</p>
+      </div>
+   </div>
   )
 }
