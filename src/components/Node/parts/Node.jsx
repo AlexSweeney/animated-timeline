@@ -3,8 +3,7 @@ import { triggerOnTransitionEnd } from '../../../utils/utils';
 import './../styles/Node.css';
 import { v4 as uuid } from 'uuid';
 
-const Node = ({ setIds }) => { 
-  console.log('')
+const Node = ({ setIds, isAnimating, animateId, iterateAnimation }) => {  
   const [lineHeightClass, setLineHeightClass] = useState('line--closed');
   const [dotVisibileClass, setDotVisibleClass] = useState('dot--hide');
   const [infoBoxVisibleClass, setInfoBoxVisibleClass] = useState('infoBox--hide');
@@ -15,12 +14,19 @@ const Node = ({ setIds }) => {
   
   const onRender = () => { 
     setIds(ids => [...ids, idNum])
-
-    openLine().then(() => {
-      showDot()
-      showInfoBox()
-    })
   };
+
+  const animate = () => {
+    openLine()
+      .then(() => {
+        const promOne = showDot();
+        const promTwo = showInfoBox();
+
+        Promise.all([promOne, promTwo]).then(() => {
+          iterateAnimation()
+        });
+      })
+  }
 
   const openLine = () => {
     return new Promise(resolve => {
@@ -53,6 +59,10 @@ const Node = ({ setIds }) => {
   useEffect(() => {
     onRender()
   }, [])
+
+  useEffect(() => { 
+    if(isAnimating && animateId === idNum) animate()
+  }, [animateId, isAnimating])
 
   return (
     <div className='node'> 

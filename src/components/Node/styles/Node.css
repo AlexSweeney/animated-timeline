@@ -12,7 +12,7 @@
   left: 0;
   transition-delay: 1s;
   transition-property: opacity;
-  transition-duration: 2s; 
+  transition-duration: 0.5s; 
 }
 
 .infoBox--hide {
@@ -33,7 +33,7 @@
   width: 10px;
   background-color: black;
   align-self: center;
-  transition: height 4s;
+  transition: height 0.5s;
 }
 
 .line--closed {
@@ -47,7 +47,7 @@
 .dot { 
   background-color: red;
   border-radius: 100%;
-  transition: width 2s, height 2s;
+  transition: width 0.5s, height 0.5s;
 }
 
 .dot--hide {
