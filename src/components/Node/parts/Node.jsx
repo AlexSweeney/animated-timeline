@@ -4,15 +4,15 @@ import './../styles/Node.css';
 import { v4 as uuid } from 'uuid';
 
 const Node = ({ setIds }) => { 
+  console.log('')
   const [lineHeightClass, setLineHeightClass] = useState('line--closed');
   const [dotVisibileClass, setDotVisibleClass] = useState('dot--hide');
   const [infoBoxVisibleClass, setInfoBoxVisibleClass] = useState('infoBox--hide');
-
-  const idNum = uuid();
-  const lineId = `line-${idNum}`;
-  const dotId = `dot-${idNum}`;
-  const infoBoxId = `infoBox-${idNum}`;
-
+  const [idNum] = useState(uuid());
+  const [lineId] = useState(`line-${idNum}`);
+  const [dotId] = useState(`dot-${idNum}`);
+  const [infoBoxId] = useState(`infoBox-${idNum}`);
+  
   const onRender = () => { 
     setIds(ids => [...ids, idNum])
 
