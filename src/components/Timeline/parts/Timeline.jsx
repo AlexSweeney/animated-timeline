@@ -1,12 +1,14 @@
 import './../styles/Timeline.css';
+import Node from '../../Node/parts/Node';
 
-export const Timeline = ({
+export default function Timeline({
 
-}) => {
+}) {
 
   return (
     <div className="root">
-      <div className="trunk"/>
+      <Node>
+      </Node>
     </div>
   )
 }

@@ -1,0 +1,36 @@
+.node {
+  display: inline-flex; 
+  flex-direction: column;
+  border: 2px solid green;
+}
+
+.line {
+  width: 10px;
+  background-color: black;
+  align-self: center;
+  transition: height 4s;
+}
+
+.line--closed {
+  height: 0em;
+}
+
+.line--open {
+  height: 2em;
+}
+
+.dot { 
+  background-color: red;
+  border-radius: 100%;
+  transition: width 2s, height 2s;
+}
+
+.dot--hide {
+  width: 0em;
+  height: 0em;
+}
+
+.dot--show {
+  height: 1.5em;
+  width: 1.5em;
+}

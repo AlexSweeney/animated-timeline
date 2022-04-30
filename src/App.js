@@ -1,4 +1,4 @@
-import { Timeline } from './components/Timeline/parts/Timeline';
+import Timeline from './components/Timeline/parts/Timeline';
  
 function App() {
   return (
