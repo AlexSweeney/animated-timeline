@@ -64,13 +64,13 @@ const Timeline = ({
     <>
       <div className="root" id={timelineId}>    
         <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
+        <Node setIds={setIds} infoBoxPosition="right" isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
         <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
+        <Node setIds={setIds} infoBoxPosition="right" isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
         <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
+        <Node setIds={setIds} infoBoxPosition="right" isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
         <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
-        <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
-        <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
-        <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
-        <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
+        <Node setIds={setIds} infoBoxPosition="right" isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
         <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
 
         

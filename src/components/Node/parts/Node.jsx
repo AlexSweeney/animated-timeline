@@ -7,7 +7,8 @@ const Node = ({
   setIds, 
   isAnimating, 
   animateId, 
-  iterateAnimation 
+  iterateAnimation,
+  infoBoxPosition = 'left',
 }) => {  
   // ==== ids
   const [idNum] = useState(uuid());
@@ -18,6 +19,7 @@ const Node = ({
   const [lineHeightClass, setLineHeightClass] = useState('line--closed');
   const [dotVisibileClass, setDotVisibleClass] = useState('dot--hide');
   const [infoBoxVisibleClass, setInfoBoxVisibleClass] = useState('infoBox--hide');
+  const [infoBoxPositionClass] = useState(`infoBox--${infoBoxPosition}`);
   
   // === event handlers
   const onRender = () => { 
@@ -75,7 +77,7 @@ const Node = ({
         <div id={lineId} className={`line ${lineHeightClass}`}/>
         <div id={dotId} className={`dot ${dotVisibileClass}`}/>   
       </div>
-      <div id={infoBoxId} className={`infoBox ${infoBoxVisibleClass}`}>
+      <div id={infoBoxId} className={`infoBox ${infoBoxVisibleClass} ${infoBoxPositionClass}`}>
         <h3>Year 2020</h3>
         <p>Hello world</p>
       </div>

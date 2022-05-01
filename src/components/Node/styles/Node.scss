@@ -15,10 +15,17 @@ $info-box-open-time: 1000ms;
 
 .infoBox { 
   position: absolute;
-  left: 0;
   transition-delay: $info-box-open-delay;
   transition-property: opacity;
   transition-duration: $info-box-open-time; 
+}
+
+.infoBox--left {
+  left: 0;
+}
+
+.infoBox--right {
+  right: 0;
 }
 
 .infoBox--hide {
