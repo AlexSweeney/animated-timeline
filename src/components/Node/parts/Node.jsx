@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { triggerOnTransitionEnd } from '../../../utils/utils';
+import { triggerOnTransitionEnd, callAtSameTime } from '../../../utils/utils';
 import './../styles/Node.scss';
 import { v4 as uuid } from 'uuid';
 
@@ -24,18 +24,14 @@ const Node = ({
     setIds(ids => [...ids, idNum])
   };
 
-  // === utils
+  // === master
   const animate = () => {
-    call(openLine, showDot) 
+    callAtSameTime(openLine, showDot) 
       .then(showInfoBox)
       .then(iterateAnimation)
   }
 
-  function call() { 
-    const promises = Array.from(arguments).map(fn => fn()); 
-    return Promise.all(promises);
-  }
-
+  // === utils 
   const openLine = () => {
     return new Promise(resolve => {
       triggerOnTransitionEnd(lineId, 'height', () => { 

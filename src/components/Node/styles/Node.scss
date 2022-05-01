@@ -1,10 +1,10 @@
-$line-open-time: 500ms;
+$line-open-time: 700ms;
 
-$dot-open-delay: 0;
+$dot-open-delay: 400ms;
 $dot-open-time: 600ms;
 
 $info-box-open-delay: 200ms;
-$info-box-open-time: 500ms;
+$info-box-open-time: 1000ms;
 
 .node {
   display: flex;

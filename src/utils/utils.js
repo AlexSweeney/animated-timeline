@@ -9,3 +9,8 @@ export function triggerOnTransitionEnd(id, propertyName, onEnd, cancel = false) 
 		if(isSameProperty && !isBubbling && !cancel) onEnd() 
 	})
 }
+
+export function callAtSameTime() { 
+	const promises = Array.from(arguments).map(fn => fn()); 
+	return Promise.all(promises);
+}
