@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Dot from './../../Dot/parts/Dot';
 import './../styles/Timeline.scss';
 import { v4 as uuid } from 'uuid';
+import { InfoBoxPosition } from '../../Dot/utils/Dot.consts';
 
 const Timeline = () => {
   // === id
@@ -11,7 +12,7 @@ const Timeline = () => {
   const [ids, setIds] = useState<string[]>([]);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
-  const [animateId, setAnimateId] = useState<string>(); 
+  const [animateId, setAnimateId] = useState<string>(''); 
 
   // === event handlers
   const onRender = () => { 
@@ -37,7 +38,7 @@ const Timeline = () => {
     setIds(ids => [...ids, id])
   }
 
-  const iterateAnimation = () => { 
+  const nextAnimation = () => { 
     const newIndex: number = currentIndex + 1; 
 
     if(newIndex < ids.length) {
@@ -57,19 +58,49 @@ const Timeline = () => {
     if(isAnimating) onStartAnimation()
   }, [isAnimating])
 
-  // === output
+  // === output  
   return (
     <>
-      <div className="root" id={timelineId}>    
-        {/* <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
-        <Node setIds={setIds} infoBoxPosition="right" isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
-        <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
-        <Node setIds={setIds} infoBoxPosition="right" isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
-        <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
-        <Node setIds={setIds} infoBoxPosition="right" isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
-        <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
-        <Node setIds={setIds} infoBoxPosition="right" isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
-        <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/>  */}
+      <div className="root" id={timelineId}>   
+        <Dot 
+          addId={addId} 
+          isAnimating={isAnimating} 
+          animateId={animateId} 
+          nextAnimation={nextAnimation} 
+        /> 
+        <Dot 
+          addId={addId} 
+          isAnimating={isAnimating} 
+          animateId={animateId} 
+          nextAnimation={nextAnimation} 
+          infoBoxPosition={InfoBoxPosition.Right}
+        /> 
+        <Dot 
+          addId={addId} 
+          isAnimating={isAnimating} 
+          animateId={animateId} 
+          nextAnimation={nextAnimation} 
+        /> 
+        <Dot 
+          addId={addId} 
+          isAnimating={isAnimating} 
+          animateId={animateId} 
+          nextAnimation={nextAnimation} 
+          infoBoxPosition={InfoBoxPosition.Right}
+        /> 
+        <Dot 
+          addId={addId} 
+          isAnimating={isAnimating} 
+          animateId={animateId} 
+          nextAnimation={nextAnimation} 
+        /> 
+        <Dot 
+          addId={addId} 
+          isAnimating={isAnimating} 
+          animateId={animateId} 
+          nextAnimation={nextAnimation} 
+          infoBoxPosition={InfoBoxPosition.Right}
+        /> 
       </div> 
     </>
   )

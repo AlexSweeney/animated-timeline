@@ -2,33 +2,33 @@ import React, {useEffect, useState} from 'react';
 import { triggerOnTransitionEnd, callAtSameTime } from './../../../utils/utils';
 import '../styles/Node.scss';
 import { v4 as uuid } from 'uuid';
-import {InfoBoxPosition } from './../utils/Dot.consts';
+import { InfoBoxPosition } from './../utils/Dot.consts';
 
 export interface NodeProps {
-  setIds: (param: string[]) => string, 
+  addId: (param: string) => void, 
   isAnimating: boolean, 
   animateId: string, 
-  iterateAnimation: Function,
-  infoBoxPosition: InfoBoxPosition,
+  nextAnimation: Function,
+  infoBoxPosition?: InfoBoxPosition,
 }
 
-const Node = ({ 
-  setIds, 
+const Dot = ({ 
+  addId, 
   isAnimating, 
   animateId, 
-  iterateAnimation,
+  nextAnimation,
   infoBoxPosition = InfoBoxPosition.Left,
 }: NodeProps) => {  
   // ==== ids
-  const [idNum] = useState(uuid());
-  const [lineId] = useState(`line-${idNum}`);
-  const [dotId] = useState(`dot-${idNum}`);
-  const [infoBoxId] = useState(`infoBox-${idNum}`);
+  const [idNum] = useState<string>(uuid());
+  const [lineId] = useState<string>(`line-${idNum}`);
+  const [dotId] = useState<string>(`dot-${idNum}`);
+  const [infoBoxId] = useState<string>(`infoBox-${idNum}`);
   // === classes
-  const [lineHeightClass, setLineHeightClass] = useState('line--closed');
-  const [dotVisibileClass, setDotVisibleClass] = useState('dot--hide');
-  const [infoBoxVisibleClass, setInfoBoxVisibleClass] = useState('infoBox--hide');
-  const [infoBoxPositionClass] = useState(`infoBox--${infoBoxPosition}`);
+  const [lineHeightClass, setLineHeightClass] = useState<string>('line--closed');
+  const [dotVisibileClass, setDotVisibleClass] = useState<string>('dot--hide');
+  const [infoBoxVisibleClass, setInfoBoxVisibleClass] = useState<string>('infoBox--hide');
+  const [infoBoxPositionClass] = useState<string>(`infoBox--${infoBoxPosition}`);
   
   // === event handlers
   const onRender = () => { 
@@ -39,7 +39,7 @@ const Node = ({
   const animate = () => {
     callAtSameTime(openLine, showDot) 
       .then(showInfoBox)
-      .then(iterateAnimation)
+      .then(() => nextAnimation())
   }
 
   // === utils 
@@ -94,4 +94,4 @@ const Node = ({
   )
 }
 
-export default Node;
+export default Dot;
