@@ -4,18 +4,22 @@ import './../styles/Node.css';
 import { v4 as uuid } from 'uuid';
 
 const Node = ({ setIds, isAnimating, animateId, iterateAnimation }) => {  
-  const [lineHeightClass, setLineHeightClass] = useState('line--closed');
-  const [dotVisibileClass, setDotVisibleClass] = useState('dot--hide');
-  const [infoBoxVisibleClass, setInfoBoxVisibleClass] = useState('infoBox--hide');
+  // ==== ids
   const [idNum] = useState(uuid());
   const [lineId] = useState(`line-${idNum}`);
   const [dotId] = useState(`dot-${idNum}`);
   const [infoBoxId] = useState(`infoBox-${idNum}`);
+  // === classes
+  const [lineHeightClass, setLineHeightClass] = useState('line--closed');
+  const [dotVisibileClass, setDotVisibleClass] = useState('dot--hide');
+  const [infoBoxVisibleClass, setInfoBoxVisibleClass] = useState('infoBox--hide');
   
+  // === event handlers
   const onRender = () => { 
     setIds(ids => [...ids, idNum])
   };
 
+  // === utils
   const animate = () => {
     openLine()
       .then(() => {
@@ -38,8 +42,7 @@ const Node = ({ setIds, isAnimating, animateId, iterateAnimation }) => {
   }
 
   const showDot = () => { 
-    return new Promise(resolve => {
-      console.log('show dot')
+    return new Promise(resolve => { 
       triggerOnTransitionEnd(dotId, 'height', () => {
         resolve(null)
       })  
@@ -56,6 +59,7 @@ const Node = ({ setIds, isAnimating, animateId, iterateAnimation }) => {
     }) 
   }
 
+  // === listen / trigger
   useEffect(() => {
     onRender()
   }, [])
@@ -64,6 +68,7 @@ const Node = ({ setIds, isAnimating, animateId, iterateAnimation }) => {
     if(isAnimating && animateId === idNum) animate()
   }, [animateId, isAnimating])
 
+  // === output
   return (
     <div className='node'> 
       <div className='timeline'>
