@@ -1,36 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import Node from '../../Node/parts/Node';
-import './../styles/Timeline.css';
+import Dot from './../../Dot/parts/Dot';
+import './../styles/Timeline.scss';
 import { v4 as uuid } from 'uuid';
 
-
-const Timeline = ({
-
-}) => {
-  // id
-  const [idNum] = useState(uuid());
-  const [timelineId] = useState(`timeline-${idNum}`);
-  // consts
-  const [ids, setIds] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [animateId, setAnimateId] = useState(null);
+const Timeline = () => {
+  // === id
+  const [idNum] = useState<string>(uuid());
+  const [timelineId] = useState<string>(`timeline-${idNum}`);
+  // === consts
+  const [ids, setIds] = useState<string[]>([]);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [isAnimating, setIsAnimating] = useState<boolean>(false);
+  const [animateId, setAnimateId] = useState<string>(); 
 
   // === event handlers
-  const onClickButton = () => { 
-    setIsAnimating(true)
-  };
-
   const onRender = () => { 
-    window.addEventListener('scroll', onScroll)
+    window.addEventListener('scroll', onScroll);
   };
 
   const onScroll = () => {
-    const windowTop = window.pageYOffset;
-    const timelineTop = document.getElementById(timelineId).offsetTop; 
+    const windowTop: number = window.pageYOffset; 
+    const timelineTop: number|void = document.getElementById(timelineId)?.offsetTop; 
 
-    if(windowTop >= timelineTop) {
+    if(timelineTop && windowTop >= timelineTop) {
       setIsAnimating(true)
+      window.removeEventListener('scroll', onScroll);
     }
   };
 
@@ -38,9 +32,13 @@ const Timeline = ({
     setAnimateId(ids[currentIndex])
   };
 
-  // === utils 
+  // === utils
+  const addId = (id:string) => { 
+    setIds(ids => [...ids, id])
+  }
+
   const iterateAnimation = () => { 
-    const newIndex = currentIndex + 1; 
+    const newIndex: number = currentIndex + 1; 
 
     if(newIndex < ids.length) {
       setAnimateId(ids[newIndex])
@@ -63,7 +61,7 @@ const Timeline = ({
   return (
     <>
       <div className="root" id={timelineId}>    
-        <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
+        {/* <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
         <Node setIds={setIds} infoBoxPosition="right" isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
         <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
         <Node setIds={setIds} infoBoxPosition="right" isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
@@ -71,11 +69,8 @@ const Timeline = ({
         <Node setIds={setIds} infoBoxPosition="right" isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
         <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
         <Node setIds={setIds} infoBoxPosition="right" isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
-        <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
-
-        
-      </div>
-      <button onClick={onClickButton}>Animate</button>
+        <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/>  */}
+      </div> 
     </>
   )
 }

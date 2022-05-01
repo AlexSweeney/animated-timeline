@@ -1,8 +1,9 @@
+import React from 'react';
 import Timeline from './components/Timeline/parts/Timeline';
 import './App.css'; 
  
 function App() {
-  return (
+  return ( 
     <div className="App">
       <div className='space'></div>
       <Timeline/> 

@@ -1,15 +1,24 @@
 import React, {useEffect, useState} from 'react';
-import { triggerOnTransitionEnd, callAtSameTime } from '../../../utils/utils';
-import './../styles/Node.scss';
+import { triggerOnTransitionEnd, callAtSameTime } from './../../../utils/utils';
+import '../styles/Node.scss';
 import { v4 as uuid } from 'uuid';
+import {InfoBoxPosition } from './../utils/Dot.consts';
+
+export interface NodeProps {
+  setIds: (param: string[]) => string, 
+  isAnimating: boolean, 
+  animateId: string, 
+  iterateAnimation: Function,
+  infoBoxPosition: InfoBoxPosition,
+}
 
 const Node = ({ 
   setIds, 
   isAnimating, 
   animateId, 
   iterateAnimation,
-  infoBoxPosition = 'left',
-}) => {  
+  infoBoxPosition = InfoBoxPosition.Left,
+}: NodeProps) => {  
   // ==== ids
   const [idNum] = useState(uuid());
   const [lineId] = useState(`line-${idNum}`);
@@ -23,7 +32,7 @@ const Node = ({
   
   // === event handlers
   const onRender = () => { 
-    setIds(ids => [...ids, idNum])
+    addId(idNum)
   };
 
   // === master
