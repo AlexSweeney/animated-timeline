@@ -1,9 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import { triggerOnTransitionEnd } from '../../../utils/utils';
-import './../styles/Node.css';
+import './../styles/Node.scss';
 import { v4 as uuid } from 'uuid';
 
-const Node = ({ setIds, isAnimating, animateId, iterateAnimation }) => {  
+const Node = ({ 
+  setIds, 
+  isAnimating, 
+  animateId, 
+  iterateAnimation 
+}) => {  
   // ==== ids
   const [idNum] = useState(uuid());
   const [lineId] = useState(`line-${idNum}`);
@@ -21,15 +26,14 @@ const Node = ({ setIds, isAnimating, animateId, iterateAnimation }) => {
 
   // === utils
   const animate = () => {
-    openLine()
-      .then(() => {
-        const promOne = showDot();
-        const promTwo = showInfoBox();
+    call(openLine, showDot) 
+      .then(showInfoBox)
+      .then(iterateAnimation)
+  }
 
-        Promise.all([promOne, promTwo]).then(() => {
-          iterateAnimation()
-        });
-      })
+  function call() { 
+    const promises = Array.from(arguments).map(fn => fn()); 
+    return Promise.all(promises);
   }
 
   const openLine = () => {

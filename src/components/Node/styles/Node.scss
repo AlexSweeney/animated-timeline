@@ -1,18 +1,24 @@
+$line-open-time: 500ms;
+
+$dot-open-delay: 0;
+$dot-open-time: 600ms;
+
+$info-box-open-delay: 200ms;
+$info-box-open-time: 500ms;
+
 .node {
   display: flex;
-  width: 500px;
-  background-color: pink;
+  width: 500px; 
   justify-content: center;
   position: relative;
 }
 
-.infoBox {
-  border: 2px solid red;
+.infoBox { 
   position: absolute;
   left: 0;
-  transition-delay: 1s;
+  transition-delay: $info-box-open-delay;
   transition-property: opacity;
-  transition-duration: 0.5s; 
+  transition-duration: $info-box-open-time; 
 }
 
 .infoBox--hide {
@@ -25,15 +31,14 @@
 
 .timeline {
   display: inline-flex; 
-  flex-direction: column;
-  border: 2px solid green;
+  flex-direction: column; 
 }
 
 .line {
   width: 10px;
   background-color: black;
   align-self: center;
-  transition: height 0.5s;
+  transition: height $line-open-time ease-in-out;
 }
 
 .line--closed {
@@ -47,7 +52,9 @@
 .dot { 
   background-color: red;
   border-radius: 100%;
-  transition: width 0.5s, height 0.5s;
+  transition-property: width, height;
+  transition-delay: $dot-open-delay;
+  transition-duration: $dot-open-time; 
 }
 
 .dot--hide {

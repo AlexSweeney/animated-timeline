@@ -61,19 +61,22 @@ const Timeline = ({
 
   // === output
   return (
-    <div className="root" id={timelineId}>    
-      <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
-      <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
-      <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
-      <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
-      <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
-      <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
-      <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
-      <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
-      <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
+    <>
+      <div className="root" id={timelineId}>    
+        <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
+        <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
+        <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
+        <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
+        <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
+        <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
+        <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
+        <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
+        <Node setIds={setIds} isAnimating={isAnimating} animateId={animateId} iterateAnimation={iterateAnimation}/> 
 
+        
+      </div>
       <button onClick={onClickButton}>Animate</button>
-    </div>
+    </>
   )
 }
 
