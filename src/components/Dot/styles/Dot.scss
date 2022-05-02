@@ -20,19 +20,19 @@ $info-box-open-time: 1000ms;
   transition-duration: $info-box-open-time; 
 }
 
-.infoBox--left {
+.infoBox__left {
   left: 0;
 }
 
-.infoBox--right {
+.infoBox__right {
   right: 0;
 }
 
-.infoBox--hide {
+.infoBox__hide {
   opacity: 0;
 }
 
-.infoBox--show {
+.infoBox__show {
   opacity: 1;
 }
 
@@ -48,11 +48,11 @@ $info-box-open-time: 1000ms;
   transition: height $line-open-time ease-in-out;
 }
 
-.line--closed {
+.line__closed {
   height: 0em;
 }
 
-.line--open {
+.line__open {
   height: 2em;
 }
 
@@ -64,12 +64,12 @@ $info-box-open-time: 1000ms;
   transition-duration: $dot-open-time; 
 }
 
-.dot--hide {
+.dot__hide {
   width: 0em;
   height: 0em;
 }
 
-.dot--show {
+.dot__show {
   height: 1.5em;
   width: 1.5em;
 }

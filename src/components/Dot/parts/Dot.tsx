@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { triggerOnTransitionEnd, callAtSameTime } from './../../../utils/utils';
-import '../styles/Node.scss';
+import styles from './../styles/Dot.css';
 import { v4 as uuid } from 'uuid';
 import { InfoBoxPosition } from './../utils/Dot.consts';
 
@@ -19,6 +19,7 @@ const Dot = ({
   nextAnimation,
   infoBoxPosition = InfoBoxPosition.Left,
 }: NodeProps) => {  
+  console.log('styles', styles)
   // ==== ids
   const [idNum] = useState<string>(uuid());
   const [lineId] = useState<string>(`line-${idNum}`);
