@@ -50,8 +50,7 @@ $info-box-open-time: 1000ms;
   width: 10px;
   background-color: black;
   align-self: center;
-  transition: height 5s ease-in-out;
-  // transition: height $line-open-time ease-in-out;
+  transition: height $line-open-time ease-in-out;
 }
 
 .timeline-section__line--closed {

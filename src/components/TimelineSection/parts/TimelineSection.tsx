@@ -26,10 +26,10 @@ const TimelineSection = ({
   const [dotId] = useState<string>(`timeline-section__dot-${idNum}`);
   const [infoBoxId] = useState<string>(`timeline-section__info-box-${idNum}`);
   // === classes
-  const [lineHeightClass, setLineHeightClass] = useState<string>('timelime-section__line--closed');
+  const [lineHeightClass, setLineHeightClass] = useState<string>('timeline-section__line--closed');
   const [dotVisibileClass, setDotVisibleClass] = useState<string>('timeline-section__dot--hide');
   const [infoBoxVisibleClass, setInfoBoxVisibleClass] = useState<string>('timeline-section__info-box--hide');
-  const [infoBoxPositionClass] = useState<string>(`timeline-section__infoBox--${infoBoxPosition}`);
+  const [infoBoxPositionClass] = useState<string>(`timeline-section__info-box--${infoBoxPosition}`);
   
   // === event handlers
   const onRender = () => { 
@@ -37,11 +37,10 @@ const TimelineSection = ({
   };
 
   // === master
-  const animate = () => {
-    openLine() 
-    // callAtSameTime(openLine, showDot) 
-    //   .then(showInfoBox)
-    //   .then(() => nextAnimation())
+  const animate = () => { 
+    callAtSameTime(openLine, showDot) 
+      .then(showInfoBox)
+      .then(() => nextAnimation())
   }
 
   // === utils 
