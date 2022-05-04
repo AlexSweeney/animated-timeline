@@ -72,7 +72,7 @@ const Timeline = () => {
           <h4>2021</h4>
           <p>New Knowledge Hub platform launches</p>
         </TimelineSection>
-        <TimelineSection 
+        {/* <TimelineSection 
           addId={addId} 
           isAnimating={isAnimating} 
           animateId={animateId} 
@@ -190,7 +190,7 @@ const Timeline = () => {
         >
           <h4>2009</h4>  
           <p>EU Automation is formed in Stafforshire, UK</p>     
-        </TimelineSection> 
+        </TimelineSection>  */}
       </div> 
     </>
   )
