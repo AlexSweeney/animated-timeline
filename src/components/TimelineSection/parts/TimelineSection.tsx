@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {ReactNode, useEffect, useState} from 'react';
 import { triggerOnTransitionEnd, callAtSameTime } from '../../../utils/utils';
 import '../styles/TimelineSection.scss';
 import { v4 as uuid } from 'uuid';
@@ -11,6 +11,7 @@ export interface TimelineSectionProps {
   animateId: string, 
   nextAnimation: Function,
   infoBoxPosition?: InfoBoxPosition,
+  children?: ReactNode,
 }
 
 const TimelineSection = ({ 
@@ -19,6 +20,7 @@ const TimelineSection = ({
   animateId, 
   nextAnimation,
   infoBoxPosition = InfoBoxPosition.Left,
+  children,
 }: TimelineSectionProps) => {   
   // ==== ids
   const [idNum] = useState<string>(uuid());
@@ -88,8 +90,7 @@ const TimelineSection = ({
         <div id={dotId} className={`timeline-section__dot ${dotVisibileClass}`}/>   
       </div>
       <div id={infoBoxId} className={`timeline-section__info-box ${infoBoxVisibleClass} ${infoBoxPositionClass}`}>
-        <h3>Year 2020</h3>
-        <p>Hello world</p>
+        {children && children}
       </div>
    </div>
   )
