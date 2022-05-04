@@ -61,7 +61,7 @@ const Timeline = () => {
   // === output  
   return (
     <>
-      <div className="root" id={timelineId}>   
+      <div className="timeline" id={timelineId}>   
         <TimelineSection 
           addId={addId} 
           isAnimating={isAnimating} 
