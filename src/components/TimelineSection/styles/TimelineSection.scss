@@ -1,3 +1,4 @@
+// === Animations
 $line-open-time: 700ms;
 
 $dot-open-delay: 400ms;
@@ -6,57 +7,63 @@ $dot-open-time: 600ms;
 $info-box-open-delay: 200ms;
 $info-box-open-time: 1000ms;
 
-.node {
+// === Timeline Section
+.timeline-section {
   display: flex;
   width: 500px; 
   justify-content: center;
   position: relative;
 }
 
-.infoBox { 
+// === infoBox
+.timeline-section__info-box { 
   position: absolute;
   transition-delay: $info-box-open-delay;
   transition-property: opacity;
   transition-duration: $info-box-open-time; 
 }
 
-.infoBox__left {
+.timeline-section__info-box--left {
   left: 0;
 }
 
-.infoBox__right {
+.timeline-section__info-box--right {
   right: 0;
 }
 
-.infoBox__hide {
+.timeline-section__info-box--hide {
   opacity: 0;
 }
 
-.infoBox__show {
+.timeline-section__info-box--show {
   opacity: 1;
 }
 
-.timeline {
+// === line container
+.timeline-section__line-container {
   display: inline-flex; 
   flex-direction: column; 
 }
 
-.line {
+// === line
+.timeline-section__line {
   width: 10px;
   background-color: black;
   align-self: center;
-  transition: height $line-open-time ease-in-out;
+  transition: height 5s ease-in-out;
+  // transition: height $line-open-time ease-in-out;
 }
 
-.line__closed {
-  height: 0em;
+.timeline-section__line--closed {
+  height: 0;
 }
 
-.line__open {
+.timeline-section__line--open {
   height: 2em;
 }
 
-.dot { 
+// === dot
+.timeline-section__dot { 
   background-color: red;
   border-radius: 100%;
   transition-property: width, height;
@@ -64,12 +71,12 @@ $info-box-open-time: 1000ms;
   transition-duration: $dot-open-time; 
 }
 
-.dot__hide {
+.timeline-section__dot--hide {
   width: 0em;
   height: 0em;
 }
 
-.dot__show {
+.timeline-section__dot--show {
   height: 1.5em;
   width: 1.5em;
 }

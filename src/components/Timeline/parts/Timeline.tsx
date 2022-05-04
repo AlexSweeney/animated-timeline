@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Dot from './../../Dot/parts/Dot';
+import TimelineSection from '../../TimelineSection/parts/TimelineSection';
 import './../styles/Timeline.scss';
 import { v4 as uuid } from 'uuid';
-import { InfoBoxPosition } from '../../Dot/utils/Dot.consts';
+import { InfoBoxPosition } from '../../TimelineSection/utils/TimelineSection.consts';
 
 const Timeline = () => {
   // === id
@@ -62,39 +62,39 @@ const Timeline = () => {
   return (
     <>
       <div className="root" id={timelineId}>   
-        <Dot 
+        <TimelineSection 
           addId={addId} 
           isAnimating={isAnimating} 
           animateId={animateId} 
           nextAnimation={nextAnimation} 
         /> 
-        <Dot 
-          addId={addId} 
-          isAnimating={isAnimating} 
-          animateId={animateId} 
-          nextAnimation={nextAnimation} 
-          infoBoxPosition={InfoBoxPosition.Right}
-        /> 
-        <Dot 
-          addId={addId} 
-          isAnimating={isAnimating} 
-          animateId={animateId} 
-          nextAnimation={nextAnimation} 
-        /> 
-        <Dot 
+        <TimelineSection 
           addId={addId} 
           isAnimating={isAnimating} 
           animateId={animateId} 
           nextAnimation={nextAnimation} 
           infoBoxPosition={InfoBoxPosition.Right}
         /> 
-        <Dot 
+        <TimelineSection 
           addId={addId} 
           isAnimating={isAnimating} 
           animateId={animateId} 
           nextAnimation={nextAnimation} 
         /> 
-        <Dot 
+        <TimelineSection 
+          addId={addId} 
+          isAnimating={isAnimating} 
+          animateId={animateId} 
+          nextAnimation={nextAnimation} 
+          infoBoxPosition={InfoBoxPosition.Right}
+        /> 
+        <TimelineSection 
+          addId={addId} 
+          isAnimating={isAnimating} 
+          animateId={animateId} 
+          nextAnimation={nextAnimation} 
+        /> 
+        <TimelineSection 
           addId={addId} 
           isAnimating={isAnimating} 
           animateId={animateId} 
