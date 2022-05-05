@@ -75,6 +75,9 @@ $line-height: 1.5em;
 .timeline-section__line-container {
   display: inline-flex; 
   flex-direction: column; 
+  position: relative;
+  width: $dot-size;
+  align-items: center;
 }
 
 // === line
@@ -97,8 +100,7 @@ $line-height: 1.5em;
 // === dot
 .timeline-section__dot { 
   position: absolute;
-  top: $line-height; 
-  left: ($section-width / 2) - ($dot-size / 2);
+  top: $line-height;   
   background-color: $timeline-color;
   border-radius: 100%;
   transition-property: width, height;
