@@ -1,4 +1,4 @@
-.timeline {
+.timeline__container {
   height: 300vh;
   width: 100vw; 
   display: flex; 
@@ -10,4 +10,27 @@
   font-family: sans-serif;
   font-size: 1.5em;
   padding: 2.5em 0;
+}
+
+.timeline__inner {
+  width: 100%;
+  border: 2px solid green;
+  display: flex;
+  justify-content: center;
+  position: relative
+}
+
+.timeline__line {
+  width: 6px;
+  background-color: red;
+  position: absolute;
+  transition: height 700ms;
+}
+
+.timeline__line--closed { 
+  height: 0;
+}
+
+.timeline__line--open {
+  height: 100%;
 }

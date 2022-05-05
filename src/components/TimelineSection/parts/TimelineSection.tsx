@@ -1,5 +1,5 @@
 import React, {ReactNode, useEffect, useState} from 'react';
-import { triggerOnTransitionEnd, callAtSameTime } from '../../../utils/utils';
+import { triggerOnTransitionEnd } from '../../../utils/utils';
 import '../styles/TimelineSection.scss';
 import { v4 as uuid } from 'uuid';
 import { InfoBoxPosition } from '../utils/TimelineSection.consts';
