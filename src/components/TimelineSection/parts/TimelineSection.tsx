@@ -103,7 +103,7 @@ const TimelineSection = ({
         {children && children}
       </div>
       <div className='timeline-section__line-container'> 
-        <div id={lineId} className={`timeline-section__line ${lineHeightClass}`}/>
+        {/* <div id={lineId} className={`timeline-section__line ${lineHeightClass}`}/> */}
         <div id={dotId} className={`timeline-section__dot ${dotVisibileClass}`}/>   
       </div> 
    </div>

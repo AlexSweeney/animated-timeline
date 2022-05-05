@@ -1,3 +1,4 @@
+
 // === Animations
 $line-open-time: 700ms;
 
@@ -27,8 +28,7 @@ $section-height: 6em;
 .timeline-section {
   display: grid; 
   width: $section-width;  
-  grid-template-columns: $info-box-width 1fr $info-box-width;
-  border: 2px solid red;
+  grid-template-columns: $info-box-width auto $info-box-width; 
 }
 
 // === infoBox
@@ -61,11 +61,13 @@ $section-height: 6em;
 }
 
 .timeline-section__info-box--left {
-  align-self: start;
+  grid-column-start: 1;
+  grid-row-start: 1;
 }
 
 .timeline-section__info-box--right {
-  align-self: end;
+  grid-column-start: 3;
+  grid-row-start: 1;
 }
 
 .timeline-section__info-box--hide {
@@ -78,11 +80,12 @@ $section-height: 6em;
 
 // === line container
 .timeline-section__line-container {
-  display: inline-flex; 
-  flex-direction: column; 
-  position: relative;
-  width: 4em;
+  display: flex;  
+  justify-content: center;
   align-items: center;
+  width: 4em; 
+  grid-column-start: 2;
+  grid-column-end: 2; 
 }
 
 // === line
@@ -107,8 +110,8 @@ $section-height: 6em;
 
 // === dot
 .timeline-section__dot {  
-  top: calc(50% - ($dot-size / 2));
-  position: absolute;
+  // top: calc(50% - ($dot-size / 2));
+  // position: absolute;
   background-color: $timeline-color;
   border-radius: 100%;
   transition-property: width, height;
