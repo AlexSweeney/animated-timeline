@@ -40,11 +40,14 @@ const TimelineSection = ({
 
   // === master
   const animate = () => {  
-    openLineHalf()
-    .then(showDot)
-    .then(showInfoBox)
-    .then(openLineFull)
-    .then(() => nextAnimation())
+    showDot()
+      .then(showInfoBox)
+      .then(() => nextAnimation())
+    // openLineHalf()
+    // .then(showDot)
+    // .then(showInfoBox)
+    // // .then(openLineFull)
+    // .then(() => nextAnimation())
   }
 
   // === utils 
