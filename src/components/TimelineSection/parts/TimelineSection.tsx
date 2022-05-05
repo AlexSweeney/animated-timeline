@@ -85,13 +85,13 @@ const TimelineSection = ({
   // === output
   return (
     <div className='timeline-section'> 
-      <div className='timeline-section__line-container'>
+      <div className='timeline-section__line-container'> 
         <div id={lineId} className={`timeline-section__line ${lineHeightClass}`}/>
         <div id={dotId} className={`timeline-section__dot ${dotVisibileClass}`}/>   
       </div>
-      <div id={infoBoxId} className={`timeline-section__info-box ${infoBoxVisibleClass} ${infoBoxPositionClass}`}>
+      {/* <div id={infoBoxId} className={`timeline-section__info-box ${infoBoxVisibleClass} ${infoBoxPositionClass}`}>
         {children && children}
-      </div>
+      </div> */}
    </div>
   )
 }

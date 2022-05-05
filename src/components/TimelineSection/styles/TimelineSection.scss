@@ -7,10 +7,19 @@ $dot-open-time: 600ms;
 $info-box-open-delay: 200ms;
 $info-box-open-time: 1000ms;
 
+// === Colors
+$timeline-color: #737887;
+
+// === Size
+$section-width: 31.25em;
+$dot-size: 1em;
+$line-height: 1.5em;
+
+
 // === Timeline Section
 .timeline-section {
   display: flex;
-  width: 500px; 
+  width: $section-width; 
   justify-content: center;
   position: relative;
 }
@@ -43,7 +52,7 @@ $info-box-open-time: 1000ms;
 
 .timeline-section__info-box p {
   font-weight: 100; 
-  line-height: 1.5em; 
+  line-height: $line-height;
 }
 
 .timeline-section__info-box--left {
@@ -70,10 +79,11 @@ $info-box-open-time: 1000ms;
 
 // === line
 .timeline-section__line {
-  width: 10px;
-  background-color: black;
+  width: 6px;
+  background-color: $timeline-color;
   align-self: center;
-  transition: height $line-open-time ease-in-out;
+  border-radius: 6px;
+  transition: height 700ms ease-in-out;
 }
 
 .timeline-section__line--closed {
@@ -86,7 +96,10 @@ $info-box-open-time: 1000ms;
 
 // === dot
 .timeline-section__dot { 
-  background-color: red;
+  position: absolute;
+  top: $line-height; 
+  left: ($section-width / 2) - ($dot-size / 2);
+  background-color: $timeline-color;
   border-radius: 100%;
   transition-property: width, height;
   transition-delay: $dot-open-delay;
@@ -99,6 +112,6 @@ $info-box-open-time: 1000ms;
 }
 
 .timeline-section__dot--show {
-  height: 1.5em;
-  width: 1.5em;
+  height: $dot-size;
+  width: $dot-size;
 }
