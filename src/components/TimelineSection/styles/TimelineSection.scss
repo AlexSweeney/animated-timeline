@@ -10,30 +10,35 @@ $info-box-open-time: 1000ms;
 // === Colors
 $timeline-color: #737887;
 
-// === Size
-$section-width: 31.25em;
+// === Size 
+// dot
 $dot-size: 1em;
-$line-height: 1.5em;
 
+// info box 
+$info-box-width: 14.5em;
+
+// line
+$line-container-width: 4em; 
+
+$section-width: $line-container-width + ($info-box-width * 2);
+$section-height: 6em;
 
 // === Timeline Section
 .timeline-section {
-  display: flex;
-  width: $section-width; 
-  justify-content: center;
-  position: relative;
+  display: grid; 
+  width: $section-width;  
+  grid-template-columns: $info-box-width 1fr $info-box-width;
+  border: 2px solid red;
 }
 
 // === infoBox
-.timeline-section__info-box { 
-  position: absolute;
+.timeline-section__info-box {  
   transition-delay: $info-box-open-delay;
   transition-property: opacity;
   transition-duration: $info-box-open-time;
   box-sizing: border-box;
   padding: 0.75em;
-  width: 14.5em;
-  height: 6em;
+  width: 14.5em; 
   border: 1px solid #D4D4D4; 
   border-radius: 8px;
   box-shadow: 0px 0px 25px 7px #E6E6E6;
@@ -51,16 +56,16 @@ $line-height: 1.5em;
 }
 
 .timeline-section__info-box p {
-  font-weight: 100; 
-  line-height: $line-height;
+  font-weight: 100;  
+  line-height: 12px;
 }
 
 .timeline-section__info-box--left {
-  left: 0;
+  align-self: start;
 }
 
 .timeline-section__info-box--right {
-  right: 0;
+  align-self: end;
 }
 
 .timeline-section__info-box--hide {
@@ -76,7 +81,7 @@ $line-height: 1.5em;
   display: inline-flex; 
   flex-direction: column; 
   position: relative;
-  width: $dot-size;
+  width: 4em;
   align-items: center;
 }
 
@@ -93,14 +98,18 @@ $line-height: 1.5em;
   height: 0;
 }
 
-.timeline-section__line--open {
-  height: 2em;
+.timeline-section__line--open-half {
+  height: 50%;
+}
+
+.timeline-section__line--open-full {
+  height: 100%;
 }
 
 // === dot
-.timeline-section__dot { 
+.timeline-section__dot {  
+  top: calc(50% - ($dot-size / 2));
   position: absolute;
-  top: $line-height;   
   background-color: $timeline-color;
   border-radius: 100%;
   transition-property: width, height;
