@@ -73,6 +73,17 @@ $timeline-color: #737887;
 }
 
 
+@media screen and (min-width: $timeline-width) {  
+  .timeline-section {
+    grid-template-columns: $info-box-width $line-container-width $info-box-width; 
+    margin: auto;
+  }
+
+  .timeline-section__dot-container {
+    grid-column-start: 2;
+  }
+}
+
 // .timeline-section {
 //   display: grid; 
 //   max-width: $section-width;  

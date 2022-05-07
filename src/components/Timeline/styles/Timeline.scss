@@ -57,17 +57,16 @@
   left: 0; 
 }
 
-
 // Bigger than mobile
-// @media screen and (min-width: $timeline-width) {  
-//   .timeline__container {
-//     align-items: center;
-//   }
+@media screen and (min-width: $timeline-width) {  
+  .timeline__container {
+    align-items: center;
+  }
 
-//   .timeline__line-wrapper {
-//     width: 100%;
-//   }
-// }
+  .timeline__line-wrapper {
+    width: 100%;
+  }
+}
 
 
 
