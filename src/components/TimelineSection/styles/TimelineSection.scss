@@ -1,3 +1,4 @@
+@import '../../../styles/sizes.scss';
 
 // === Animations
 $line-open-time: 700ms;
@@ -9,25 +10,12 @@ $info-box-open-delay: 200ms;
 $info-box-open-time: 1000ms;
 
 // === Colors
-$timeline-color: #737887;
-
-// === Size 
-// dot
-$dot-size: 1em;
-
-// info box 
-$info-box-width: 14.5em;
-
-// line
-$line-container-width: 4em; 
-
-$section-width: $line-container-width + ($info-box-width * 2);
-$section-height: 6em;
+$timeline-color: #737887; 
 
 // === Timeline Section
 .timeline-section {
   display: grid; 
-  width: $section-width;  
+  max-width: $section-width;  
   grid-template-columns: $info-box-width auto $info-box-width; 
 }
 
@@ -110,8 +98,6 @@ $section-height: 6em;
 
 // === dot
 .timeline-section__dot {  
-  // top: calc(50% - ($dot-size / 2));
-  // position: absolute;
   background-color: $timeline-color;
   border-radius: 100%;
   transition-property: width, height;
@@ -127,4 +113,29 @@ $section-height: 6em;
 .timeline-section__dot--show {
   height: $dot-size;
   width: $dot-size;
+}
+
+@media screen and (max-width: $section-width) {  
+  .timeline-section {
+    grid-template-columns: auto $info-box-width; 
+  }
+
+  .timeline-section__info-box {
+    margin: 1em 0;
+  }
+
+  .timeline-section__info-box--left {
+    grid-column-start: 2;
+    grid-row-start: 1;
+  }
+
+  .timeline-section__info-box--right {
+    grid-column-start: 2;
+    grid-row-start: 1;
+  }
+
+  .timeline-section__line-container {   
+    grid-column-start: 1;
+    grid-row-start: 1;
+  }
 }

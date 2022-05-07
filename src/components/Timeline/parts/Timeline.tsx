@@ -82,11 +82,18 @@ const Timeline = () => {
       <div className="timeline__container" id={timelineId}>   
         <h3 className="timeline__title">Our Journey</h3>
 
-        <div className='timeline__inner'>
+        <div className='timeline__content-wrapper'>
           <div className='timeline__line-wrapper'>
             <div id={lineId} className={`timeline__line ${lineOpenClass}`}/>
           </div>
-          <div className='timeline__section-wrapper'>
+          <div className='timeline__sections-wrapper'> 
+          </div>
+        </div>
+        {/* <div className='timeline__inner'>
+          <div className='timeline__line-wrapper'>
+            <div id={lineId} className={`timeline__line ${lineOpenClass}`}/>
+          </div>
+          <div className='timeline__sections-wrapper'> 
             <TimelineSection 
               addId={addId} 
               isAnimating={isAnimating} 
@@ -223,7 +230,7 @@ const Timeline = () => {
               <p>EU Automation is formed in Stafforshire, UK</p>     
             </TimelineSection>
           </div>
-        </div>
+        </div> */}
       </div> 
     </>
   )
