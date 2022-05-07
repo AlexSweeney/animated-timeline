@@ -11,7 +11,8 @@ export interface TimelineSectionProps {
   animateId: string, 
   nextAnimation: Function,
   infoBoxPosition?: InfoBoxPosition,
-  children?: ReactNode,
+  className?: string,
+  children?: ReactNode, 
 }
 
 const TimelineSection = ({ 
@@ -20,6 +21,7 @@ const TimelineSection = ({
   animateId, 
   nextAnimation,
   infoBoxPosition = InfoBoxPosition.Left,
+  className = '',
   children,
 }: TimelineSectionProps) => {   
   // ==== ids
@@ -98,7 +100,7 @@ const TimelineSection = ({
 
   // === output
   return (
-    <div className='timeline-section'> 
+    <div className={`timeline-section ${className}`}> 
       <div className='timeline-section__dot-container'>  
         <div id={dotId} className={`timeline-section__dot ${dotVisibileClass}`}/>   
       </div> 

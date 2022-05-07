@@ -16,7 +16,12 @@ $timeline-color: #737887;
 .timeline-section {
   display: grid;
   max-width: $section-width;
-  grid-template-columns: $line-container-width auto;
+  grid-template-columns: $line-container-width auto; 
+  margin-bottom: 1em;
+}
+
+.timeline-section--last {
+  margin-bottom: 0;
 }
 
 .timeline-section__info-box {
@@ -45,6 +50,14 @@ $timeline-color: #737887;
 .timeline-section__info-box p {
   font-weight: 100;  
   line-height: 19px;
+}
+
+.timeline-section__info-box--hide {
+  opacity: 0;
+}
+
+.timeline-section__info-box--show {
+  opacity: 1;
 }
 
 .timeline-section__dot-container {
@@ -81,6 +94,16 @@ $timeline-color: #737887;
 
   .timeline-section__dot-container {
     grid-column-start: 2;
+  }
+
+  .timeline-section__info-box--left {
+    grid-column-start: 1;
+    grid-row-start: 1;
+  }
+  
+  .timeline-section__info-box--right {
+    grid-column-start: 3;
+    grid-row-start: 1;
   }
 }
 
