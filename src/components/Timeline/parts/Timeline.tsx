@@ -87,6 +87,15 @@ const Timeline = () => {
             <div id={lineId} className={`timeline__line ${lineOpenClass}`}/>
           </div>
           <div className='timeline__sections-wrapper'> 
+            <TimelineSection 
+              addId={addId} 
+              isAnimating={isAnimating} 
+              animateId={animateId} 
+              nextAnimation={nextAnimation} 
+            >   
+              <h4>2021</h4>
+              <p>New Knowledge Hub platform launches</p>
+            </TimelineSection>
           </div>
         </div>
         {/* <div className='timeline__inner'>
