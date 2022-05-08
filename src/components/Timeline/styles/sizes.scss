@@ -1,16 +1,16 @@
-// === Timeline 
-// line
+// === line
 $line-container-width: 4em; 
+$line-width: 6px;
 
-// dot
+// === dot
 $dot-size: 1em;
 
-// info box 
+// === info box 
 $info-box-width: 14.5em; 
 
-// sections
+// === sections
 $section-width: $line-container-width + ($info-box-width * 2);
 $section-height: 6em;
 
-// total
+// === total
 $timeline-width: $section-width;
