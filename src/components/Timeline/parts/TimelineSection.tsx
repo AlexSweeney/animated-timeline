@@ -3,7 +3,7 @@ import { TimelineContext } from './Timeline';
 import { triggerOnTransitionEnd } from '../../../utils/utils';
 import '../styles/TimelineSection.scss';
 import { v4 as uuid } from 'uuid';
-import { InfoBoxPosition } from './../utils/TimelineSection.consts';
+import { InfoBoxPosition, DotVisibleClass, InfoBoxVisibleClass } from './../utils/TimelineSection.consts';
 
 export interface TimelineSectionProps {
   infoBoxPosition?: InfoBoxPosition,
@@ -23,8 +23,8 @@ const TimelineSection = ({
   const [dotId] = useState<string>(`timeline-section__dot-${idNum}`);
   const [infoBoxId] = useState<string>(`timeline-section__info-box-${idNum}`);
   // === classes 
-  const [dotVisibileClass, setDotVisibleClass] = useState<string>('timeline-section__dot--hide');
-  const [infoBoxVisibleClass, setInfoBoxVisibleClass] = useState<string>('timeline-section__info-box--hide');
+  const [dotVisibileClass, setDotVisibleClass] = useState<string>(DotVisibleClass.Hide);
+  const [infoBoxVisibleClass, setInfoBoxVisibleClass] = useState<string>(InfoBoxVisibleClass.Hide);
   const [infoBoxPositionClass] = useState<string>(`timeline-section__info-box--${infoBoxPosition}`);
   
   // === event handlers
@@ -43,14 +43,14 @@ const TimelineSection = ({
   const showDot = () => { 
     return new Promise(resolve => { 
       triggerOnTransitionEnd(dotId, 'height', resolve)
-      setDotVisibleClass('timeline-section__dot--show')
+      setDotVisibleClass(DotVisibleClass.Show)
     }) 
   }
 
   const showInfoBox = () => {
     return new Promise(resolve => {
-      triggerOnTransitionEnd(infoBoxId, 'opacity', resolve)
-      setInfoBoxVisibleClass('timeline-section__info-box--show')
+      triggerOnTransitionEnd(infoBoxId, 'opacity', resolve) 
+      setInfoBoxVisibleClass(InfoBoxVisibleClass.Show)
     }) 
   }
 
