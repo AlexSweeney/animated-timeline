@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import TimelineSection from '../../TimelineSection/parts/TimelineSection';
+import TimelineSection from './TimelineSection';
 import { triggerOnTransitionEnd } from '../../../utils/utils';
 import './../styles/Timeline.scss';
 import { v4 as uuid } from 'uuid';
-import { InfoBoxPosition } from '../../TimelineSection/utils/TimelineSection.consts';
+import { InfoBoxPosition } from './../utils/TimelineSection.consts';
 
 const Timeline = () => {
   // === id

@@ -2,7 +2,7 @@ import React, {ReactNode, useEffect, useState} from 'react';
 import { triggerOnTransitionEnd } from '../../../utils/utils';
 import '../styles/TimelineSection.scss';
 import { v4 as uuid } from 'uuid';
-import { InfoBoxPosition } from '../utils/TimelineSection.consts';
+import { InfoBoxPosition } from './../utils/TimelineSection.consts';
 
 
 export interface TimelineSectionProps {
