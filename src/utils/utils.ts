@@ -9,10 +9,3 @@ export function triggerOnTransitionEnd(id: string, propertyName: string, onEnd: 
 		if(isSameProperty && !isBubbling && !cancel) onEnd() 
 	})
 }
-
-type PromiseFunction = () => Promise<any>;
-
-export function callAtSameTime(...params: PromiseFunction[]) { 
-	const promises: Promise<any>[] = Array.from(arguments).map(fn => fn()); 
-	return Promise.all(promises);
-}
