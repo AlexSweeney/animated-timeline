@@ -1,4 +1,6 @@
 @import './sizes.scss';
+@import './transitions.scss';
+@import './colors.scss';
  
 // === Timeline Section
 .timeline-section {
@@ -12,13 +14,14 @@
   margin-bottom: 0;
 }
 
+// === InfoBox
 .timeline-section__info-box {
   transition-delay: $info-box-open-delay;
   transition-property: opacity;
   transition-duration: $info-box-open-time;
   box-sizing: border-box;
   padding: 0.75em;
-  width: 14.5em; 
+  width: $info-box-width;
   border: 1px solid $info-box-border-color;
   border-radius: 8px;
   box-shadow: 0px 0px 25px 7px $info-box-box-shadow-color;
@@ -48,6 +51,7 @@
   opacity: 1;
 }
 
+// === Dot
 .timeline-section__dot-container {
   display: flex;  
   justify-content: center;
@@ -56,7 +60,7 @@
 }
 
 .timeline-section__dot {  
-  background-color: $timeline-color;
+  background-color: $dot-color;
   border-radius: 100%;
   transition-property: width, height;
   transition-delay: $dot-open-delay;
