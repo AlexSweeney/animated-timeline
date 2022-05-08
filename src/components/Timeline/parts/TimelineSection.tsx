@@ -42,18 +42,14 @@ const TimelineSection = ({
   // === utils 
   const showDot = () => { 
     return new Promise(resolve => { 
-      triggerOnTransitionEnd(dotId, 'height', () => {
-        resolve(null)
-      })  
+      triggerOnTransitionEnd(dotId, 'height', resolve)
       setDotVisibleClass('timeline-section__dot--show')
     }) 
   }
 
   const showInfoBox = () => {
     return new Promise(resolve => {
-      triggerOnTransitionEnd(infoBoxId, 'opacity', () => {
-        resolve(null)
-      })  
+      triggerOnTransitionEnd(infoBoxId, 'opacity', resolve)
       setInfoBoxVisibleClass('timeline-section__info-box--show')
     }) 
   }
