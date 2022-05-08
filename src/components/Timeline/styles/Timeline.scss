@@ -21,7 +21,7 @@
 }
 
 // ====== Content
-.timeline__content-container {
+.timeline__content-wrapper {
   width: 100%; 
   position: relative;
 } 
@@ -51,11 +51,6 @@
 
 .timeline__line--open {
   height: 100%; 
-}
-
-// ====== Sections
-.timeline__sections-wrapper { 
-  width: 100%;  
 }
 
 // ====== Bigger than mobile
